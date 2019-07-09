@@ -5,7 +5,7 @@
 \title{ms_rectify_maps}
 \usage{
 ms_rectify_maps(map_original, map_modified, type = "polygons",
-  downsample = 10, quiet = FALSE)
+  downsample = 10, concavity = 0, quiet = FALSE)
 }
 \arguments{
 \item{map_original}{File name of the original map without anything drawn over
@@ -17,14 +17,17 @@ it (either a `.pdf` or `.png`; extension will be ignored).}
 \item{type}{Currently either "points", "polygons", or "hulls", where
 "points" simply reduces each distinct object to a single, central point;
 "polygons" identifies individual groups and returns the polygon representing
-the outer boundary of each; and "hulls" constructs convex polygons around
-each group.}
+the outer boundary of each; and "hulls" constructs convex or concave polygons
+around each group.}
 
 \item{downsample}{Factor by which to downsample polygons, noting that
 polygons initially include every outer pixel of image, so can generally be
 downsampled by at least an order or magnitude (`n = 10`). Higher values may
 be used for higher-resolution images; lower values will generally only be
 necessary for very low lower resolution images.}
+
+\item{concavity}{For `type = "hulls"`, a value between 0 and 1, with 0 giving
+concave hulls and 1 giving highly concave hulls.}
 
 \item{quiet}{If `FALSE`, display progress information on screen}
 }
