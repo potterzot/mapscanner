@@ -147,7 +147,7 @@
 <a href="#map-rectification" class="anchor"></a>Map rectification</h2>
 <p>Having produced digital maps using the <a href="https://mpadge.github.io/mapscanner/reference/ms_generate_map.html"><code><a href="../reference/ms_generate_map.html">ms_generate_map()</a></code></a> function as described above, and having printed, variously drawn-on, and scanned the result back in to digital form, the package can then be used to rectify the hand-drawn markings against the original map with the <a href="https://mpadge.github.io/mapscanner/reference/ms_rectify_maps.html"><code><a href="../reference/ms_rectify_maps.html">ms_rectify_maps()</a></code></a> function, which returns the drawn-on objects as spatial objects in <a href="https://cran.r-project.org/package=sf">Simple Features (<code>sf</code>)</a> format. The only requirement is that the drawn-on objects are coloured; black or grey objects will not be recognised. As described above, this has the advantage that maps may be annotated in ways not intended to be converted to spatial objects (such as adding unique identification or participant codes), through simply providing such annotations in grey or black.</p>
 <p>The <a href="https://mpadge.github.io/mapscanner/reference/ms_rectify_maps.html"><code><a href="../reference/ms_rectify_maps.html">ms_rectify_maps()</a></code></a> function has only two primary arguments, specifying the names (and locations) of the original and modified map files – in that order: <code><a href="../reference/ms_rectify_maps.html">ms_rectify_maps(original, modified)</a></code>. These files should ideally be in <code>.png</code> formats, but will be auto-converted from <code>.pdf</code> if needed. The package comes with two sample maps, both in <code>.png</code> format. The first is the reference version needed for rectification, while the second has two red lines drawn upon it:</p>
-<p><img src="omaha-polygons.png"></p>
+<p><img src="omaha-polygons.png" width="600" height="400"></p>
 <p>Converting the lines on this scanned image file is then as simple as:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">f_orig &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span> (<span class="st">"extdata"</span>, <span class="st">"omaha.png"</span>, <span class="dt">package =</span> <span class="st">"mapscanner"</span>)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2">f_mod &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span> (<span class="st">"extdata"</span>, <span class="st">"omaha-polygons.png"</span>, <span class="dt">package =</span> <span class="st">"mapscanner"</span>)</a>
@@ -163,12 +163,12 @@
 <pre><code>## Simple feature collection with 2 features and 0 fields
 ## geometry type:  POLYGON
 ## dimension:      XY
-## bbox:           xmin: -96.11764 ymin: 41.26657 xmax: -96.02752 ymax: 41.3008
+## bbox:           xmin: -96.09474 ymin: 41.27929 xmax: -96.04931 ymax: 41.29681
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ##                         geometry
-## 1 POLYGON ((-96.04196 41.2963...
-## 2 POLYGON ((-96.11764 41.2697...</code></pre>
+## 1 POLYGON ((-96.05646 41.2945...
+## 2 POLYGON ((-96.09474 41.2808...</code></pre>
 <p>The result of <a href="https://mpadge.github.io/mapscanner/reference/ms_rectify_maps.html"><code><a href="../reference/ms_rectify_maps.html">ms_rectify_maps()</a></code></a> can be plotted using any standard option for plotting spatial data, such as through online mapping packages such as <code>mapview</code>:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">xy<span class="op">$</span>id &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span> (<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nrow">nrow</a></span> (xy))</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">mapview<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/mapview/topics/mapView">mapview</a></span> (xy)</a></code></pre></div>

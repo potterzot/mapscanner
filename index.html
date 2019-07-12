@@ -96,17 +96,17 @@
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; ❯ converting to spatial format </span></a>
 <a class="sourceLine" id="cb3-10" data-line-number="10">✔ converting to spatial format</a>
 <a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;    user  system elapsed </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  28.089   1.340  20.604</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  23.845   1.031  14.826</span></a>
 <a class="sourceLine" id="cb3-13" data-line-number="13">res</a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; Simple feature collection with 2 features and 0 fields</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; geometry type:  POLYGON</span></a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co">#&gt; dimension:      XY</span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; bbox:           xmin: -96.11764 ymin: 41.26657 xmax: -96.02752 ymax: 41.3008</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="co">#&gt; bbox:           xmin: -96.09474 ymin: 41.27929 xmax: -96.04931 ymax: 41.29681</span></a>
 <a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co">#&gt; epsg (SRID):    4326</span></a>
 <a class="sourceLine" id="cb3-19" data-line-number="19"><span class="co">#&gt; proj4string:    +proj=longlat +datum=WGS84 +no_defs</span></a>
 <a class="sourceLine" id="cb3-20" data-line-number="20"><span class="co">#&gt;                         geometry</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; 1 POLYGON ((-96.04196 41.2963...</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt; 2 POLYGON ((-96.11764 41.2697...</span></a></code></pre></div>
+<a class="sourceLine" id="cb3-21" data-line-number="21"><span class="co">#&gt; 1 POLYGON ((-96.05646 41.2945...</span></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"><span class="co">#&gt; 2 POLYGON ((-96.09474 41.2808...</span></a></code></pre></div>
 <p>The rectification can take quite some time, during which <a href="https://github.com/jonclayden/RNiftyReg"><code>RNiftyReg</code> package</a> is constructing the best transformation of the modified image back on to the original. The result of <code><a href="reference/ms_rectify_maps.html">ms_rectify_maps()</a></code> is a spatial object in <a href="https://cran.r-project.org/package=sf"><code>sf</code></a>-format in which each drawn component is represented as a separate polygon. Finally, we can plot the result as an interactive map using packages like <a href="https://github.com/symbolixAU/mapdeck"><code>mapdeck</code></a>, or <a href="https://github.com/r-spatial/mapview"><code>mapview</code></a>:</p>
 <p><img src="reference/figures/leaflet-1.png"></p>
 <p>And our hand-drawn lines shown above have been converted to standard spatial objects able to be analysed in any desired way. See the <a href="https://mpadge.github.io/mapscanner/articles/mapscanner.html">package vignette</a> for more detail of what the <code>mapscanner</code> package can do.</p>
