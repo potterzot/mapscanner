@@ -113,7 +113,8 @@ modifications in `map_modified` as spatial objects in <span class="pkg">sf</span
     </div>
 
     <pre class="usage"><span class='fu'>ms_rectify_maps</span>(<span class='no'>map_original</span>, <span class='no'>map_modified</span>, <span class='kw'>non_linear</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"polygons"</span>, <span class='kw'>downsample</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"polygons"</span>, <span class='kw'>downsample</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>concavity</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>length_threshold</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -138,16 +139,28 @@ non-linearity in modified image - see Note.</p></td>
       <td><p>Currently either "points", "polygons", or "hulls", where
 "points" simply reduces each distinct object to a single, central point;
 "polygons" identifies individual groups and returns the polygon representing
-the outer boundary of each; and "hulls" constructs convex polygons around
-each group.</p></td>
+the outer boundary of each; and "hulls" constructs convex or concave polygons
+around each group.</p></td>
     </tr>
     <tr>
       <th>downsample</th>
-      <td><p>Factor by which to downsample polygons, noting that
-polygons initially include every outer pixel of image, so can generally be
-downsampled by at least an order or magnitude (`n = 10`). Higher values may
-be used for higher-resolution images; lower values will generally only be
+      <td><p>Factor by which to downsample `type = "polygons"`, noting
+that polygons initially include every outer pixel of image, so can generally
+be downsampled by at least an order or magnitude (`n = 10`). Higher values
+may be used for higher-resolution images; lower values will generally only be
 necessary for very low lower resolution images.</p></td>
+    </tr>
+    <tr>
+      <th>concavity</th>
+      <td><p>For `type = "hulls"`, a value between 0 and 1, with 0 giving
+convex hulls and 1 giving highly concave hulls.</p></td>
+    </tr>
+    <tr>
+      <th>length_threshold</th>
+      <td><p>For `type = "hulls"`, the minimal length of a segment
+to be made more convex. Low values will produce highly detailed hulls which
+may cause problems; if in doubt, or if odd results appear, increase this
+value.</p></td>
     </tr>
     <tr>
       <th>quiet</th>
