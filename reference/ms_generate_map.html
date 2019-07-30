@@ -113,7 +113,7 @@ automatically save in both `.pdf` and `.png` formats.</p>
     </div>
 
     <pre class="usage"><span class='fu'>ms_generate_map</span>(<span class='no'>bbox</span>, <span class='kw'>max_tiles</span> <span class='kw'>=</span> <span class='fl'>16L</span>, <span class='kw'>mapname</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>raster_brick</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"streets"</span>, <span class='kw'>raster_brick</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,6 +132,12 @@ columns of (min, max) and rows of (x, y), respectively.</p></td>
       <th>mapname</th>
       <td><p>Name of map to be produced, optionally including full path.
 Extension will be ignored.</p></td>
+    </tr>
+    <tr>
+      <th>style</th>
+      <td><p>The style of the map to be generated; one of 'light', 'streets',
+or 'outdoors', rendered in black and white. See
+<a href='https://docs.mapbox.com/api/maps/#styles'>https://docs.mapbox.com/api/maps/#styles</a> for examples.</p></td>
     </tr>
     <tr>
       <th>raster_brick</th>

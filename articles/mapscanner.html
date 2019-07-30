@@ -68,7 +68,7 @@
       <h1>mapscanner</h1>
                         <h4 class="author">Mark Padgham and Michael D. Sumner</h4>
             
-            <h4 class="date">2019-07-25</h4>
+            <h4 class="date">2019-07-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mpadge/mapscanner/blob/master/vignettes/mapscanner.Rmd"><code>vignettes/mapscanner.Rmd</code></a></small>
       <div class="hidden name"><code>mapscanner.Rmd</code></div>
@@ -246,8 +246,8 @@
 ## $Creator
 ## [1] "R"</code></pre>
 <p>or in a terminal via <code>pdfinfo</code> (or non-linux equivalent), and embedded in the <code>.png</code> file as comment, accessible like this:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">img &lt;-<span class="st"> </span>magick<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/magick/topics/editing">image_read</a></span> (<span class="st">"chennai.png"</span>)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2">magick<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/magick/topics/attributes">image_comment</a></span> (img)</a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">img &lt;-<span class="st"> </span>magick<span class="op">::</span><span class="kw"><a href="https://docs.ropensci.org/magick/reference/editing.html">image_read</a></span> (<span class="st">"chennai.png"</span>)</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">magick<span class="op">::</span><span class="kw"><a href="https://docs.ropensci.org/magick/reference/attributes.html">image_comment</a></span> (img)</a></code></pre></div>
 <pre><code>## [1] "EX8921118.44521949+1442748.9088827+8942673.68719591+1486623.76311839"</code></pre>
 <p>or in a terminal via <code>identify -verbose</code> command (itself part of the <code>imagemagick</code> library which drives the <a href="https://github.com/ropensci/magick"><code>magick</code> <strong>R</strong> package</a>).</p>
 </div>
